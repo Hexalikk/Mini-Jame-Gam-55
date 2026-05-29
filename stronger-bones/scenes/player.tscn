@@ -63,10 +63,6 @@ position = Vector2(206, 159)
 position = Vector2(-4, -5)
 shape = SubResource("RectangleShape2D_u8vuu")
 
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=553749333]
-texture = ExtResource("1_3vyb7")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=722678850]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -76,4 +72,3 @@ drag_vertical_offset = 0.55
 sprite_frames = SubResource("SpriteFrames_jej6c")
 animation = &"throw_body"
 speed_scale = 0.5
-
