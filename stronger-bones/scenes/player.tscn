@@ -14,3 +14,8 @@ shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=553749333]
 texture = ExtResource("1_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=722678850]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = 0.55
