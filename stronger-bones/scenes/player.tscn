@@ -70,5 +70,5 @@ drag_vertical_offset = 0.55
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"throw_body"
+animation = &"throw_legs"
 speed_scale = 0.5

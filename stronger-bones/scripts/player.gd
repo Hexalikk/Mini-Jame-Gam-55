@@ -13,13 +13,18 @@ var isHeldEnough: bool = false
 
 signal drop_a_bone
 @onready var animated_sprite = $AnimatedSprite2D
-
+@onready var hitbox : CollisionShape2D = $CollisionShape2D
 
 enum STATE {
 	NORMAL,
 	NO_LEGS,
 	HEAD
 }
+
+func update_player():
+	match _state:
+		STATE.NORMAL:
+			hitbox.shape = RectangleShape2D.new()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
