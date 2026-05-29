@@ -1,16 +1,69 @@
 [gd_scene format=3 uid="uid://bkc05oxigicje"]
 
-[ext_resource type="Texture2D" uid="uid://slhpqsm0tswi" path="res://icon.svg" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://cu50igq77e6cn" path="res://skeleton.png" id="1_3vyb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(122, 120)
+size = Vector2(196, 398)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(1536, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(768, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(1152, 0, 384, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jej6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}],
+"loop": true,
+"name": &"jump_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}],
+"loop": true,
+"name": &"throw_body",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vyb7")
+}],
+"loop": true,
+"name": &"throw_legs",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=939722360]
 position = Vector2(206, 159)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1092267375]
-position = Vector2(1, 0)
+position = Vector2(-4, -5)
 shape = SubResource("RectangleShape2D_u8vuu")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=553749333]
-texture = ExtResource("1_3vyb7")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
+sprite_frames = SubResource("SpriteFrames_jej6c")
+animation = &"throw_body"
+speed_scale = 0.5
