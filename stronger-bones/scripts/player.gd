@@ -21,28 +21,21 @@ enum STATE {
 	HEAD
 }
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if is_on_floor() and velocity.x == 0 and not Input.is_action_pressed("jump"):
-		if (_state == STATE.NORMAL):
-			animated_sprite.play("default")
-		if (_state == STATE.NO_LEGS):
-			animated_sprite.play("throw_legs")
-		if (_state == STATE.HEAD):
-			animated_sprite.play("throw_body")
-		
+	update_animations()
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	if Input.is_action_pressed("jump") and is_on_floor():
-		animated_sprite.play("jump_left")
 		heldFrameCounter += 1
 		if heldFrameCounter > 50:
 			heldFrameCounter = 51
 			isHeldEnough = true
 		
 	if Input.is_action_just_released("jump") and is_on_floor():
-		animated_sprite.play("jump_left")
 		if isHeldEnough == true && _state == STATE.NORMAL :
 			velocity.y += JUMP_VELOCITY*2
 			isHeldEnough = false
@@ -56,7 +49,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y += SKULL_JUMP_VELOCITY
 
-	
 	if Input.is_action_just_released("throw a bone"):
 		match(_state):
 			STATE.NORMAL:
@@ -77,3 +69,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func update_animations() -> void:
+	
+	if not is_on_floor() and velocity.y < 0:
+		if _state != STATE.HEAD:
+			animated_sprite.play("jump_left")
+			
+	elif is_on_floor() and velocity.x == 0 and not Input.is_action_pressed("jump"):
+		if _state == STATE.NORMAL:
+			animated_sprite.play("default")
+		elif _state == STATE.NO_LEGS:
+			animated_sprite.play("throw_legs")
+		elif _state == STATE.HEAD:
+			animated_sprite.play("throw_body")
+			

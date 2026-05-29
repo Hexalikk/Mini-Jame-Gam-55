@@ -58,6 +58,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=939722360]
 position = Vector2(206, 159)
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1092267375]
 position = Vector2(-4, -5)
@@ -70,5 +71,4 @@ drag_vertical_offset = 0.55
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"throw_body"
 speed_scale = 0.5
