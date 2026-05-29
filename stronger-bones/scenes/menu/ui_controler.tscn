@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c03wtasctqywr"]
+
+[ext_resource type="Script" uid="uid://bbkwwqujpb3x5" path="res://scripts/ui/ui_controler.gd" id="1_jtdf3"]
+[ext_resource type="PackedScene" uid="uid://b8ra6rtw3vijd" path="res://scenes/menu/MainMenu.tscn" id="1_uvi86"]
+
+[node name="UiControler" type="Control" unique_id=2006456600]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jtdf3")
+
+[node name="MainMenu" parent="." unique_id=927798294 instance=ExtResource("1_uvi86")]
+layout_mode = 1
+
+[connection signal="select_level" from="MainMenu" to="." method="_on_main_menu_select_level"]
