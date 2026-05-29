@@ -70,6 +70,7 @@ expand_mode = 1
 flip_h = true
 
 [node name="Settings" type="Control" parent="." unique_id=1170124019]
+visible = false
 anchors_preset = 0
 offset_left = -868.0
 offset_top = 134.0

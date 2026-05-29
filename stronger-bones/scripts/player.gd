@@ -5,14 +5,17 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const SKULL_JUMP_VELOCITY = -100.0
 
-var _state = STATE.NORMAL
 
+var _head_hitbox = CircleShape2D.new()
+var _normal_hitbox = RectangleShape2D.new()
+var _nolegs_hitbox = RectangleShape2D.new()
+
+var _state = STATE.NORMAL
 var heldFrameCounter: int = 0
 var isHeldEnough: bool = false
 
-
 signal drop_a_bone
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite :AnimatedSprite2D= $AnimatedSprite2D
 @onready var hitbox : CollisionShape2D = $CollisionShape2D
 
 enum STATE {
@@ -21,15 +24,20 @@ enum STATE {
 	HEAD
 }
 
+func _ready() -> void:
+	hitbox.shape = _normal_hitbox
+
 func update_player():
 	match _state:
 		STATE.NORMAL:
-			hitbox.shape = RectangleShape2D.new()
-
+			hitbox.shape = _normal_hitbox
+		STATE.NO_LEGS:
+			hitbox.shape = _nolegs_hitbox
+		STATE.HEAD:
+			hitbox.shape = _head_hitbox
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	update_animations()
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -70,9 +78,12 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		animated_sprite.flip_h = 1
 	else:
+		animated_sprite.flip_h = 0
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	update_animations()
+	update_player()
 	move_and_slide()
 	
 func update_animations() -> void:
