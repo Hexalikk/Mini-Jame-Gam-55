@@ -106,9 +106,9 @@ func _physics_process(delta: float) -> void:
 				smoke_sprite.play("default")
 				_state = STATE.NO_LEGS
 				var new_bones : Bones = bones_scene.instantiate()
-				get_parent().add_child(new_bones)
 				new_bones.set_type(Bones.TYPE.LEGS)
-
+				get_parent().add_child(new_bones)
+				
 				var current_shape = _normal_hitbox.shape.get_rect() 
 				var current_height = current_shape.size.y/2
 				
@@ -116,10 +116,10 @@ func _physics_process(delta: float) -> void:
 				var new_bones_height = new_bones_shape.size.y
 
 				var feet_position_y = self.global_position.y  + current_height/2
-				var target_bones_y = feet_position_y - (new_bones_height)
+				var target_bones_y = feet_position_y - (new_bones_height/2)
 				
 				
-				var lift_amount = new_bones_height+10
+				var lift_amount = new_bones_height
 					
 				self.global_position.y -= lift_amount
 			
@@ -139,21 +139,23 @@ func _physics_process(delta: float) -> void:
 				smoke_sprite.play("default")
 				_state = STATE.HEAD
 				var new_bones : Bones = bones_scene.instantiate()
-				get_parent().add_child(new_bones) 
 				new_bones.set_type(Bones.TYPE.TORSO)
-
+				get_parent().add_child(new_bones) 
+				
 				var current_shape = _nolegs_hitbox.shape.get_rect() 
-				var current_height = current_shape.size.y
+				var current_height = current_shape.size.y/2
 				
 				var new_bones_shape = new_bones.shape_owner_get_shape(0, 0).get_rect()
 				var new_bones_height = new_bones_shape.size.y
 
-				var feet_position_y = self.global_position.y  + current_height/2
-				var target_bones_y = feet_position_y - (new_bones_height)
+				var feet_position_y = self.global_position.y  + current_height
+				var target_bones_y = feet_position_y - (new_bones_height/2)
 				
-				var lift_amount = new_bones_height+10
+				
+				var lift_amount = new_bones_height+5
+					
 				self.global_position.y -= lift_amount
-
+			
 				move_and_slide() 
 
 
@@ -186,8 +188,10 @@ func grow():
 	match _state:
 		STATE.NO_LEGS:
 			_state = STATE.NORMAL
+			animated_sprite.rotation = 0
 		STATE.HEAD:
 			_state = STATE.NO_LEGS
+			animated_sprite.rotation = 0
 
 
 func handle_movement(direction,delta):
@@ -214,7 +218,7 @@ func handle_movement(direction,delta):
 						velocity.x = -NO_HEAD_MAX_SPEED
 				if (velocity.x < 1 and velocity.x >-1):
 					velocity.x= 0
-				animated_sprite.rotation += velocity.x * 0.15 * delta
+				animated_sprite.rotation += velocity.x * 0.0005 * delta
 
 func update_animations() -> void:
 	

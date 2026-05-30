@@ -3,20 +3,24 @@
 [ext_resource type="Script" uid="uid://c2nclrgiej5qi" path="res://scripts/bones.gd" id="1_22eir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22eir"]
-size = Vector2(98, 33)
+size = Vector2(119.999985, 52.499992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvm6a"]
-size = Vector2(95, 31.5)
+size = Vector2(119.99999, 54.999992)
 
 [node name="Bones" type="RigidBody2D" unique_id=380592673]
 script = ExtResource("1_22eir")
 
 [node name="torso_hitbox" type="CollisionShape2D" parent="." unique_id=856609977]
+position = Vector2(0.99999964, -7.7499995)
+scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_22eir")
 
 [node name="leg_hitbox" type="CollisionShape2D" parent="." unique_id=1399733666]
+position = Vector2(0.99999994, -7.5)
+scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_kvm6a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1559773988]
 position = Vector2(0, -30)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1dm0ym7auaeq" path="res://assets/characters/Necromancer.png" id="1_i52cb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1doho"]
-size = Vector2(755, 578)
+size = Vector2(227, 433)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i52cb"]
 atlas = ExtResource("1_i52cb")
@@ -42,7 +42,7 @@ script = ExtResource("1_c6vx4")
 [node name="Area2D" type="Area2D" parent="." unique_id=1369753729]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=728731339]
-position = Vector2(43.5, -83)
+position = Vector2(32.5, -10.5)
 shape = SubResource("RectangleShape2D_1doho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=931725513]
