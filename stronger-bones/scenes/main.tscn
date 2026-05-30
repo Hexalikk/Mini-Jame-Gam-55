@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://b42684l5or2sf"]
 
-[ext_resource type="PackedScene" uid="uid://dfe4mlpp7t6hy" path="res://scenes/levels/Level1.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://b8ra6rtw3vijd" path="res://scenes/menu/MainMenu.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://c03wtasctqywr" path="res://scenes/menu/ui_controler.tscn" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://x6nnl0pm6kok" path="res://assets/sound/music/strongbones.mp3" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://cbu83ulyxxjwh" path="res://scripts/game_manager.gd" id="3_sugp2"]
 
 [node name="Main" type="Node" unique_id=1214933348]
 
-[node name="Level1" parent="." unique_id=1041584676 instance=ExtResource("1_o5qli")]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1050494631]
+stream = ExtResource("2_sugp2")
+volume_db = 0.055
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
-[node name="MainMenu" parent="." unique_id=927798294 instance=ExtResource("2_0wfyh")]
+[node name="UiControler" parent="." unique_id=2006456600 instance=ExtResource("2_0wfyh")]
+
+[node name="GameManager" type="Node" parent="." unique_id=949893276]
+script = ExtResource("3_sugp2")
+
+[connection signal="load_level" from="UiControler" to="GameManager" method="_on_ui_controler_load_level"]

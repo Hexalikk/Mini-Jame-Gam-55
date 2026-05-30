@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://1dm0ym7auaeq" path="res://assets/characters/Necromancer.png" id="2_s3dsm"]
 [ext_resource type="AudioStream" uid="uid://ctokwqsn7r1lw" path="res://assets/sound/sfx/shortjump.wav" id="3_y6vun"]
 [ext_resource type="Script" uid="uid://g54psjwfhcyt" path="res://scripts/ui/settings.gd" id="4_2nud1"]
-[ext_resource type="AudioStream" uid="uid://x6nnl0pm6kok" path="res://assets/sound/music/strongbones.mp3" id="6_mgsx5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgsx5"]
 texture = ExtResource("2_iv2fv")
@@ -350,13 +349,6 @@ sprite_frames = SubResource("SpriteFrames_e1dod")
 autoplay = "default"
 frame = 1
 flip_h = true
-
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=199904449]
-stream = ExtResource("6_mgsx5")
-volume_db = 0.055
-autoplay = true
-bus = &"Music"
-parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
