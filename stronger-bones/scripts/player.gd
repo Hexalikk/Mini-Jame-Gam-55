@@ -63,7 +63,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor():
 		heldFrameCounter += 1
 		if heldFrameCounter > 50:
-			charging.play()
+			if _state == STATE.NORMAL :
+				charging.play()
 			heldFrameCounter = 51
 			isHeldEnough = true
 		
