@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkc05oxigicje"]
 
 [ext_resource type="Texture2D" uid="uid://cu50igq77e6cn" path="res://assets/characters/skeleton.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://dj8bwo1a55m0t" path="res://assets/characters/skeleton2.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(196, 398)
@@ -26,6 +27,18 @@ region = Rect2(768, 0, 384, 384)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(1152, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_g2els")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_g2els")
+region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jej6c"]
 animations = [{
@@ -60,11 +73,25 @@ animations = [{
 "loop": true,
 "name": &"throw_legs",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=939722360]
 position = Vector2(206, 159)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.5, 0.5)
 
 [node name="hitbox_normal" type="CollisionShape2D" parent="." unique_id=1092267375]
 position = Vector2(-4, -5)
@@ -80,6 +107,11 @@ shape = SubResource("CircleShape2D_3vyb7")
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = 0.55
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
+sprite_frames = SubResource("SpriteFrames_jej6c")
+animation = &"walking"
+speed_scale = 0.5
 
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]
 position = Vector2(-15, 70)
