@@ -2,6 +2,11 @@ class_name player extends CharacterBody2D
 
 
 const SPEED = 300.0
+const NO_LEGS_SPEED = 250.0
+const NO_HEAD_SPEED = 25
+const NO_HEAD_ACCELERATION = 200.0  
+const NO_HEAD_FRICTION = 100      
+const NO_HEAD_MAX_SPEED = 300
 const JUMP_VELOCITY = -400.0
 const SKULL_JUMP_VELOCITY = -100.0
 
@@ -83,17 +88,38 @@ func _physics_process(delta: float) -> void:
 			
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
+	handle_movement(direction,delta)
 	if direction:
-		velocity.x = direction * SPEED
 		animated_sprite.flip_h = 1
 	else:
 		animated_sprite.flip_h = 0
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 	update_animations()
 	update_player()
 	move_and_slide()
-	
+
+
+func handle_movement(direction,delta):
+		match _state:
+			STATE.NORMAL:
+				velocity.x = direction * SPEED
+
+			STATE.NO_LEGS:
+				velocity.x = direction * NO_LEGS_SPEED
+			STATE.HEAD:
+				if direction != 0:
+					velocity.x += direction * NO_HEAD_ACCELERATION * delta
+				else:
+					if (velocity.x >0):
+						velocity.x -=  NO_HEAD_FRICTION * delta
+					else:
+						velocity.x +=  NO_HEAD_FRICTION * delta
+				if NO_HEAD_MAX_SPEED < abs(velocity.x):
+					if (velocity.x >0):
+						velocity.x = NO_HEAD_MAX_SPEED
+					else:
+						velocity.x = -NO_HEAD_MAX_SPEED
+
 func update_animations() -> void:
 	
 	if not is_on_floor() and velocity.y < 0:

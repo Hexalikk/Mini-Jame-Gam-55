@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkc05oxigicje"]
 
-[ext_resource type="Texture2D" uid="uid://cu50igq77e6cn" path="res://skeleton.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://cu50igq77e6cn" path="res://assets/characters/skeleton.png" id="1_3vyb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(196, 398)
@@ -83,7 +83,6 @@ drag_vertical_offset = 0.55
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"throw_legs"
 speed_scale = 0.5
 
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]
