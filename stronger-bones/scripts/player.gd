@@ -201,6 +201,7 @@ func handle_movement(direction,delta):
 				velocity.x = direction * NO_LEGS_SPEED
 
 			STATE.HEAD:
+
 				if direction != 0:
 					velocity.x += direction * NO_HEAD_ACCELERATION * delta
 				else:
@@ -215,6 +216,7 @@ func handle_movement(direction,delta):
 						velocity.x = -NO_HEAD_MAX_SPEED
 				if (velocity.x < 1 and velocity.x >-1):
 					velocity.x= 0
+				animated_sprite.rotation += velocity.x * 0.15 * delta
 
 func update_animations() -> void:
 	
@@ -231,7 +233,9 @@ func update_animations() -> void:
 			animated_sprite.play("throw_body")
 			
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-		animated_sprite.play("walking")
+		if _state == STATE.NORMAL:
+			animated_sprite.play("walking")
+
 			
 
 func respawn():

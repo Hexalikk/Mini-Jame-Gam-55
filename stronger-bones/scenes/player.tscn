@@ -175,7 +175,6 @@ drag_vertical_offset = 0.55
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"walking"
 speed_scale = 0.5
 
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]
@@ -191,8 +190,8 @@ position = Vector2(-48, -88)
 stream = ExtResource("4_dqkch")
 
 [node name="smokeparticule" type="AnimatedSprite2D" parent="." unique_id=1590979260]
-position = Vector2(-6.000004, 7.9999986)
-scale = Vector2(0.8554687, 0.75195307)
+position = Vector2(4.0000076, -1.5258789e-05)
+scale = Vector2(0.6982422, 0.6064453)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
 frame = 2
 frame_progress = 0.89840114
