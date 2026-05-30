@@ -158,3 +158,6 @@ func update_animations() -> void:
 		elif _state == STATE.HEAD:
 			animated_sprite.play("throw_body")
 			
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		animated_sprite.play("walking")
+			
