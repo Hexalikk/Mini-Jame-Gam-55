@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://df8v4tf3n6mn4"]
 
-[ext_resource type="Texture2D" uid="uid://1dm0ym7auaeq" path="res://Necromancer.png" id="1_i52cb"]
+[ext_resource type="Texture2D" uid="uid://1dm0ym7auaeq" path="res://assets/characters/Necromancer.png" id="1_i52cb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c6vx4"]
 
@@ -45,7 +45,7 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=931725513]
 position = Vector2(-0.99999905, -4.000004)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_rrjuj")
-frame_progress = 0.78795195
+frame_progress = 0.3215605
 speed_scale = 0.5

@@ -99,6 +99,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func grow():
+	match _state:
+		STATE.NO_LEGS:
+			_state = STATE.NORMAL
+		STATE.HEAD:
+			_state = STATE.NO_LEGS
+
+
 func handle_movement(direction,delta):
 		match _state:
 			STATE.NORMAL:
@@ -106,6 +114,7 @@ func handle_movement(direction,delta):
 
 			STATE.NO_LEGS:
 				velocity.x = direction * NO_LEGS_SPEED
+
 			STATE.HEAD:
 				if direction != 0:
 					velocity.x += direction * NO_HEAD_ACCELERATION * delta

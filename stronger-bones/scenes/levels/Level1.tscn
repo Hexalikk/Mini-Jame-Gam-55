@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfe4mlpp7t6hy"]
 
 [ext_resource type="PackedScene" uid="uid://bkc05oxigicje" path="res://scenes/player.tscn" id="1_6ovph"]
+[ext_resource type="PackedScene" uid="uid://dcerv7o74dm14" path="res://scenes/milk.tscn" id="1_68ib6"]
 [ext_resource type="Texture2D" uid="uid://b356ac7md8y0t" path="res://assets/wall.png" id="2_bwv4p"]
 [ext_resource type="Script" uid="uid://dcaot5k2ldgfd" path="res://scripts/player.gd" id="2_odhdn"]
 [ext_resource type="PackedScene" uid="uid://df8v4tf3n6mn4" path="res://scenes/necromancer.tscn" id="4_dw26h"]
@@ -12,12 +13,15 @@ size = Vector2(1311, 72.5)
 
 [node name="Level1" type="Node2D" unique_id=1041584676]
 
+[node name="Milk" parent="." unique_id=1368433105 instance=ExtResource("1_68ib6")]
+position = Vector2(592, 229)
+
 [node name="Player" parent="." unique_id=939722360 instance=ExtResource("1_6ovph")]
 position = Vector2(72, 68)
 script = ExtResource("2_odhdn")
 
 [node name="Necromancer" parent="." unique_id=497351908 instance=ExtResource("4_dw26h")]
-position = Vector2(1122, 49.000008)
+position = Vector2(853.00006, 236.00002)
 scale = Vector2(0.1, 0.1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1347995310]
