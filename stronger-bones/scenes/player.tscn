@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://k8siangul7pu" path="res://assets/smoke.png" id="4_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(196, 391)
+size = Vector2(102, 194)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
-radius = 70.0
+radius = 42.107006
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("2_g2els")
@@ -90,7 +90,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(210, 240.00012)
+size = Vector2(101.00002, 121.00003)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("4_qlg0r")
@@ -161,28 +161,29 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_qlg0r")
 
 [node name="hitbox_normal" type="CollisionShape2D" parent="." unique_id=1092267375]
-position = Vector2(0, -3.5)
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_u8vuu")
 debug_color = Color(1.6364455e-06, 0.5928822, 0.741061, 0.41960785)
 
 [node name="hitbox_head" type="CollisionShape2D" parent="." unique_id=1077274215]
-position = Vector2(0, 120)
+position = Vector2(0, 65)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=722678850]
+zoom = Vector2(1.5, 1.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = 0.55
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jej6c")
 animation = &"walking"
+animation = &"throw_legs"
 speed_scale = 0.5
 
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]
-position = Vector2(0, 70)
+position = Vector2(1.499998, 35.499996)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_g2els")
 
@@ -197,7 +198,7 @@ bus = &"SFX"
 
 [node name="smokeparticule" type="AnimatedSprite2D" parent="." unique_id=1590979260]
 position = Vector2(4.0000076, -1.5258789e-05)
-scale = Vector2(0.6982422, 0.6064453)
+scale = Vector2(0.3, 0.261)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
 frame = 2
 frame_progress = 0.89840114
