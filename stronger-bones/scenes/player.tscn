@@ -8,6 +8,9 @@ size = Vector2(196, 398)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
 radius = 70.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(210, 240.00012)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 0, 384, 384)
@@ -59,9 +62,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(210, 240.00012)
-
 [node name="Player" type="CharacterBody2D" unique_id=939722360]
 position = Vector2(206, 159)
 scale = Vector2(0.1, 0.1)
@@ -81,11 +81,12 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = 0.55
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
-sprite_frames = SubResource("SpriteFrames_jej6c")
-speed_scale = 0.5
-
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]
 position = Vector2(-15, 70)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
+scale = Vector2(0.9999998, 0.9999998)
+sprite_frames = SubResource("SpriteFrames_jej6c")
+speed_scale = 0.5
