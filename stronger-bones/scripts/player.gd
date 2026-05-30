@@ -106,9 +106,9 @@ func _physics_process(delta: float) -> void:
 				smoke_sprite.play("default")
 				_state = STATE.NO_LEGS
 				var new_bones : Bones = bones_scene.instantiate()
-				new_bones.set_type(Bones.TYPE.LEGS)
 				get_parent().add_child(new_bones)
-				
+				new_bones.set_type(Bones.TYPE.LEGS)
+
 				var current_shape = _normal_hitbox.shape.get_rect() 
 				var current_height = current_shape.size.y/2
 				
@@ -116,10 +116,10 @@ func _physics_process(delta: float) -> void:
 				var new_bones_height = new_bones_shape.size.y
 
 				var feet_position_y = self.global_position.y  + current_height/2
-				var target_bones_y = feet_position_y - (new_bones_height/2)
+				var target_bones_y = feet_position_y - (new_bones_height)
 				
 				
-				var lift_amount = new_bones_height
+				var lift_amount = new_bones_height+10
 					
 				self.global_position.y -= lift_amount
 			
@@ -139,23 +139,21 @@ func _physics_process(delta: float) -> void:
 				smoke_sprite.play("default")
 				_state = STATE.HEAD
 				var new_bones : Bones = bones_scene.instantiate()
-				new_bones.set_type(Bones.TYPE.TORSO)
 				get_parent().add_child(new_bones) 
-				
+				new_bones.set_type(Bones.TYPE.TORSO)
+
 				var current_shape = _nolegs_hitbox.shape.get_rect() 
-				var current_height = current_shape.size.y/2
+				var current_height = current_shape.size.y
 				
 				var new_bones_shape = new_bones.shape_owner_get_shape(0, 0).get_rect()
 				var new_bones_height = new_bones_shape.size.y
 
-				var feet_position_y = self.global_position.y  + current_height
-				var target_bones_y = feet_position_y - (new_bones_height/2)
+				var feet_position_y = self.global_position.y  + current_height/2
+				var target_bones_y = feet_position_y - (new_bones_height)
 				
-				
-				var lift_amount = new_bones_height+5
-					
+				var lift_amount = new_bones_height+10
 				self.global_position.y -= lift_amount
-			
+
 				move_and_slide() 
 
 

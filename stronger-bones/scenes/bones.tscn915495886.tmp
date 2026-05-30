@@ -12,11 +12,12 @@ size = Vector2(95, 31.5)
 script = ExtResource("1_22eir")
 
 [node name="torso_hitbox" type="CollisionShape2D" parent="." unique_id=856609977]
+position = Vector2(0, 32.5)
 shape = SubResource("RectangleShape2D_22eir")
 
 [node name="leg_hitbox" type="CollisionShape2D" parent="." unique_id=1399733666]
+position = Vector2(0, 31.75)
 shape = SubResource("RectangleShape2D_kvm6a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1559773988]
-position = Vector2(0, -30)
 scale = Vector2(0.4, 0.4)
