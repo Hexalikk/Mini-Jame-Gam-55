@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bkc05oxigicje"]
 
+[ext_resource type="Script" uid="uid://dcaot5k2ldgfd" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dj8bwo1a55m0t" path="res://assets/characters/skeleton2.png" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://bin2qnreyrojo" path="res://assets/sound/sfx/charging_jump.wav" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://ctokwqsn7r1lw" path="res://assets/sound/sfx/shortjump.wav" id="4_dqkch"]
@@ -157,6 +158,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=939722360]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_qlg0r")
 
 [node name="hitbox_normal" type="CollisionShape2D" parent="." unique_id=1092267375]
 position = Vector2(0, -3.5)
@@ -176,6 +178,7 @@ drag_vertical_offset = 0.55
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jej6c")
+animation = &"walking"
 speed_scale = 0.5
 
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]
@@ -196,3 +199,5 @@ scale = Vector2(0.6982422, 0.6064453)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
 frame = 2
 frame_progress = 0.89840114
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

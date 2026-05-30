@@ -241,3 +241,12 @@ func respawn():
 	smoke_started = true
 	smoke_sprite.play("default")
 	self.global_position = last_checkpoint
+
+
+
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	print(animated_sprite.animation)
+	if animated_sprite.animation == "walking":
+		jumping.play()
