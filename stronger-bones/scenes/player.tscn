@@ -175,6 +175,7 @@ drag_vertical_offset = 0.55
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jej6c")
+animation = &"walking"
 speed_scale = 0.5
 
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]

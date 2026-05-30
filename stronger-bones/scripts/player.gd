@@ -24,6 +24,8 @@ var _state = STATE.NORMAL
 var heldFrameCounter: int = 0
 var isHeldEnough: bool = false
 
+var last_checkpoint : Vector2 
+
 
 signal drop_a_bone
 @onready var animated_sprite :AnimatedSprite2D= $AnimatedSprite2D
@@ -43,6 +45,7 @@ func _ready() -> void:
 	_nolegs_hitbox.disabled = true
 	_head_hitbox.disabled = true
 	smoke_sprite.hide()
+	last_checkpoint = global_position
 
 
 func update_player():
@@ -61,6 +64,9 @@ func update_player():
 			_head_hitbox.disabled = false
 
 func _physics_process(delta: float) -> void:
+	if self.global_position.y> 1000:
+
+		respawn()
 	# Add the gravity.
 	if smoke_started:
 		smoke_time += 1
@@ -166,9 +172,9 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	handle_movement(direction,delta)
-	if direction:
+	if direction == 1:
 		animated_sprite.flip_h = 1
-	else:
+	elif  direction == -1:
 		animated_sprite.flip_h = 0
 	update_animations()
 	update_player()
@@ -227,3 +233,9 @@ func update_animations() -> void:
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		animated_sprite.play("walking")
 			
+
+func respawn():
+	smoke_sprite.show()
+	smoke_started = true
+	smoke_sprite.play("default")
+	self.global_position = last_checkpoint

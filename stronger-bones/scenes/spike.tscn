@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bskumaphkmdbk"]
+
+[ext_resource type="Script" uid="uid://drng16ghtnf2p" path="res://scripts/spike.gd" id="1_7a7y0"]
+[ext_resource type="Texture2D" uid="uid://cl77hvm6cbihs" path="res://assets/spike.png" id="1_ljd5v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a7y0"]
+atlas = ExtResource("1_ljd5v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2mqm"]
+atlas = ExtResource("1_ljd5v")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx2lw"]
+atlas = ExtResource("1_ljd5v")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60m7a"]
+atlas = ExtResource("1_ljd5v")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8th5"]
+atlas = ExtResource("1_ljd5v")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_516m6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a7y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2mqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx2lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60m7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8th5")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mixud"]
+size = Vector2(129, 43)
+
+[node name="Spike" type="Area2D" unique_id=510914641]
+scale = Vector2(2, 2)
+script = ExtResource("1_7a7y0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1239238439]
+sprite_frames = SubResource("SpriteFrames_516m6")
+animation = &"new_animation"
+frame_progress = 0.22424133
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1684138688]
+position = Vector2(0.5, 42.5)
+shape = SubResource("RectangleShape2D_mixud")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
