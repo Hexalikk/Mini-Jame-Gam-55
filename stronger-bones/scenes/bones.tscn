@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://c2nclrgiej5qi" path="res://scripts/bones.gd" id="1_22eir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22eir"]
+size = Vector2(98, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvm6a"]
+size = Vector2(95, 95)
 
 [node name="Bones" type="RigidBody2D" unique_id=380592673]
 script = ExtResource("1_22eir")

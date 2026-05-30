@@ -19,6 +19,8 @@ func _ready() -> void:
 	torso_hitbox.disabled = true
 	sprite.texture = LEGS_TEXTURE
 
+
+
 func set_type(type):
 	match type:
 		TYPE.LEGS:
@@ -37,3 +39,5 @@ func set_type(type):
 				torso_hitbox.disabled = false
 			if sprite != null:
 				sprite.texture = TORSO_TEXTURE
+
+	

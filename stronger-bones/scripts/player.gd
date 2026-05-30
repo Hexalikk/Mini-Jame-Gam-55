@@ -88,22 +88,61 @@ func _physics_process(delta: float) -> void:
 		match(_state):
 			#On est normal, on drop nos jambes
 			STATE.NORMAL:
-				
 				_state = STATE.NO_LEGS
 				var new_bones : Bones = bones_scene.instantiate()
 				new_bones.set_type(Bones.TYPE.LEGS)
-				new_bones.global_position = self.global_position
-				new_bones.global_position.x +=10
-				get_parent().add_child(new_bones)
+				get_parent().add_child(new_bones) 
+				
+				var current_shape = _normal_hitbox.shape.get_rect() 
+				var current_height = current_shape.size.y/2
+				
+				var new_bones_shape = new_bones.shape_owner_get_shape(0, 0).get_rect()
+				var new_bones_height = new_bones_shape.size.y
+
+				var feet_position_y = self.global_position.y  + current_height/2
+				var target_bones_y = feet_position_y - (new_bones_height/2)
+				
+				
+				var lift_amount = new_bones_height
+					
+				self.global_position.y -= lift_amount
+			
+				move_and_slide() 
+
+
+				new_bones.global_position.y = target_bones_y
+				
+
+				new_bones.global_position.x = self.global_position.x
 
 			#On a pas de jambes, on drop notre torse
 			STATE.NO_LEGS:
 				_state = STATE.HEAD
 				var new_bones : Bones = bones_scene.instantiate()
 				new_bones.set_type(Bones.TYPE.TORSO)
-				new_bones.global_position = self.global_position
-				new_bones.global_position.x +=10
-				get_parent().add_child(new_bones)
+				get_parent().add_child(new_bones) 
+				
+				var current_shape = _nolegs_hitbox.shape.get_rect() 
+				var current_height = current_shape.size.y/2
+				
+				var new_bones_shape = new_bones.shape_owner_get_shape(0, 0).get_rect()
+				var new_bones_height = new_bones_shape.size.y
+
+				var feet_position_y = self.global_position.y  + current_height
+				var target_bones_y = feet_position_y - (new_bones_height/2)
+				
+				
+				var lift_amount = new_bones_height+5
+					
+				self.global_position.y -= lift_amount
+			
+				move_and_slide() 
+
+
+				new_bones.global_position.y = target_bones_y
+				
+
+				new_bones.global_position.x = self.global_position.x
 			STATE.HEAD:
 				print("ptit easter egg la")
 

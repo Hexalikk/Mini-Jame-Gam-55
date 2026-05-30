@@ -91,16 +91,14 @@ animations = [{
 size = Vector2(210, 240.00012)
 
 [node name="Player" type="CharacterBody2D" unique_id=939722360]
-position = Vector2(206, 159)
 scale = Vector2(0.5, 0.5)
 
 [node name="hitbox_normal" type="CollisionShape2D" parent="." unique_id=1092267375]
-position = Vector2(-4, -5)
 shape = SubResource("RectangleShape2D_u8vuu")
 debug_color = Color(1.6364455e-06, 0.5928822, 0.741061, 0.41960785)
 
 [node name="hitbox_head" type="CollisionShape2D" parent="." unique_id=1077274215]
-position = Vector2(-30, 120)
+position = Vector2(0, 120)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_3vyb7")
 
@@ -115,7 +113,7 @@ sprite_frames = SubResource("SpriteFrames_jej6c")
 speed_scale = 0.5
 
 [node name="hitbox_rectangle" type="CollisionShape2D" parent="." unique_id=925971667]
-position = Vector2(-15, 70)
+position = Vector2(0, 70)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_g2els")
 
@@ -123,4 +121,5 @@ shape = SubResource("RectangleShape2D_g2els")
 stream = ExtResource("3_qhqgy")
 
 [node name="jumping" type="AudioStreamPlayer2D" parent="." unique_id=311571738]
+position = Vector2(-48, -88)
 stream = ExtResource("4_dqkch")
