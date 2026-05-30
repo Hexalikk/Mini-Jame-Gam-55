@@ -10,6 +10,7 @@ const NO_HEAD_MAX_SPEED = 300
 const JUMP_VELOCITY = -400.0
 const SKULL_JUMP_VELOCITY = -100.0
 
+const bones_scene : PackedScene = preload("res://scenes/bones.tscn")
 
 @onready var _head_hitbox : CollisionShape2D = $hitbox_head
 @onready var _normal_hitbox : CollisionShape2D = $hitbox_normal
@@ -77,10 +78,24 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_released("throw a bone"):
 		match(_state):
+			#On est normal, on drop nos jambes
 			STATE.NORMAL:
+				
 				_state = STATE.NO_LEGS
+				var new_bones : Bones = bones_scene.instantiate()
+				new_bones.set_type(Bones.TYPE.LEGS)
+				new_bones.global_position = self.global_position
+				new_bones.global_position.x +=10
+				get_parent().add_child(new_bones)
+
+			#On a pas de jambes, on drop notre torse
 			STATE.NO_LEGS:
 				_state = STATE.HEAD
+				var new_bones : Bones = bones_scene.instantiate()
+				new_bones.set_type(Bones.TYPE.TORSO)
+				new_bones.global_position = self.global_position
+				new_bones.global_position.x +=10
+				get_parent().add_child(new_bones)
 			STATE.HEAD:
 				print("ptit easter egg la")
 

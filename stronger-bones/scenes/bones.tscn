@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bf027sikdmd46"]
+
+[ext_resource type="Script" uid="uid://c2nclrgiej5qi" path="res://scripts/bones.gd" id="1_22eir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22eir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvm6a"]
+
+[node name="Bones" type="RigidBody2D" unique_id=380592673]
+script = ExtResource("1_22eir")
+
+[node name="torso_hitbox" type="CollisionShape2D" parent="." unique_id=856609977]
+shape = SubResource("RectangleShape2D_22eir")
+
+[node name="leg_hitbox" type="CollisionShape2D" parent="." unique_id=1399733666]
+shape = SubResource("RectangleShape2D_kvm6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1559773988]
