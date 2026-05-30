@@ -15,6 +15,10 @@ const bones_scene : PackedScene = preload("res://scenes/bones.tscn")
 @onready var _head_hitbox : CollisionShape2D = $hitbox_head
 @onready var _normal_hitbox : CollisionShape2D = $hitbox_normal
 @onready var _nolegs_hitbox : CollisionShape2D = $hitbox_rectangle
+@onready var charging :AudioStreamPlayer2D= $Chargingjump
+@onready var jumping :AudioStreamPlayer2D= $jumping
+
+
 
 var _state = STATE.NORMAL
 var heldFrameCounter: int = 0
@@ -59,12 +63,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor():
 		heldFrameCounter += 1
 		if heldFrameCounter > 50:
+			charging.play()
 			heldFrameCounter = 51
 			isHeldEnough = true
 		
 	if Input.is_action_just_released("jump") and is_on_floor():
 		if isHeldEnough == true && _state == STATE.NORMAL :
 			velocity.y += JUMP_VELOCITY*2
+			charging.stop()
+			jumping.play()
 			isHeldEnough = false
 			heldFrameCounter = 0
 			print("long jump")

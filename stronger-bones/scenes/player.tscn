@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cu50igq77e6cn" path="res://assets/characters/skeleton.png" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://dj8bwo1a55m0t" path="res://assets/characters/skeleton2.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://bin2qnreyrojo" path="res://assets/sound/sfx/charging_jump.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://ctokwqsn7r1lw" path="res://assets/sound/sfx/shortjump.wav" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(196, 398)
@@ -117,9 +119,8 @@ position = Vector2(-15, 70)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=797103433]
-visible = false
-scale = Vector2(0.9999998, 0.9999998)
-sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"throw_body"
-speed_scale = 0.5
+[node name="Chargingjump" type="AudioStreamPlayer2D" parent="." unique_id=1037784561]
+stream = ExtResource("3_qhqgy")
+
+[node name="jumping" type="AudioStreamPlayer2D" parent="." unique_id=311571738]
+stream = ExtResource("4_dqkch")
