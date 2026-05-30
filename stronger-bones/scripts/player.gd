@@ -24,9 +24,13 @@ var _state = STATE.NORMAL
 var heldFrameCounter: int = 0
 var isHeldEnough: bool = false
 
+
 signal drop_a_bone
 @onready var animated_sprite :AnimatedSprite2D= $AnimatedSprite2D
 
+@onready var smoke_sprite :AnimatedSprite2D= $smokeparticule
+var smoke_started = false
+var smoke_time = 0.0
 
 enum STATE {
 	NORMAL,
@@ -38,6 +42,8 @@ func _ready() -> void:
 	_normal_hitbox.disabled = false
 	_nolegs_hitbox.disabled = true
 	_head_hitbox.disabled = true
+	smoke_sprite.hide()
+
 
 func update_player():
 	match _state:
@@ -56,7 +62,8 @@ func update_player():
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	
+	if smoke_started:
+		smoke_time += 1
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -88,6 +95,9 @@ func _physics_process(delta: float) -> void:
 		match(_state):
 			#On est normal, on drop nos jambes
 			STATE.NORMAL:
+				smoke_sprite.show()
+				smoke_started = true
+				smoke_sprite.play("default")
 				_state = STATE.NO_LEGS
 				var new_bones : Bones = bones_scene.instantiate()
 				new_bones.set_type(Bones.TYPE.LEGS)
@@ -115,8 +125,12 @@ func _physics_process(delta: float) -> void:
 
 				new_bones.global_position.x = self.global_position.x
 
+
 			#On a pas de jambes, on drop notre torse
 			STATE.NO_LEGS:
+				smoke_sprite.show()
+				smoke_started = true
+				smoke_sprite.play("default")
 				_state = STATE.HEAD
 				var new_bones : Bones = bones_scene.instantiate()
 				new_bones.set_type(Bones.TYPE.TORSO)
@@ -159,7 +173,10 @@ func _physics_process(delta: float) -> void:
 	update_animations()
 	update_player()
 	move_and_slide()
-
+	if (smoke_started && smoke_time == 10):
+		smoke_sprite.hide()
+		smoke_started = false
+		smoke_time = 0
 
 func grow():
 	match _state:
@@ -190,6 +207,8 @@ func handle_movement(direction,delta):
 						velocity.x = NO_HEAD_MAX_SPEED
 					else:
 						velocity.x = -NO_HEAD_MAX_SPEED
+				if (velocity.x < 1 and velocity.x >-1):
+					velocity.x= 0
 
 func update_animations() -> void:
 	

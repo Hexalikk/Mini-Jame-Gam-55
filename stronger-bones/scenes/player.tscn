@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dj8bwo1a55m0t" path="res://assets/characters/skeleton2.png" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://bin2qnreyrojo" path="res://assets/sound/sfx/charging_jump.wav" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://ctokwqsn7r1lw" path="res://assets/sound/sfx/shortjump.wav" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://k8siangul7pu" path="res://assets/smoke.png" id="4_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(196, 398)
@@ -90,6 +91,70 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(210, 240.00012)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(0, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("4_qlg0r")
+region = Rect2(1024, 2048, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8ls1"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_oprun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=939722360]
 scale = Vector2(0.5, 0.5)
 
@@ -123,3 +188,10 @@ stream = ExtResource("3_qhqgy")
 [node name="jumping" type="AudioStreamPlayer2D" parent="." unique_id=311571738]
 position = Vector2(-48, -88)
 stream = ExtResource("4_dqkch")
+
+[node name="smokeparticule" type="AnimatedSprite2D" parent="." unique_id=1590979260]
+position = Vector2(-6.000004, 7.9999986)
+scale = Vector2(0.8554687, 0.75195307)
+sprite_frames = SubResource("SpriteFrames_a8ls1")
+frame = 2
+frame_progress = 0.89840114
