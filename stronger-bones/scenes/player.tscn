@@ -188,10 +188,12 @@ shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Chargingjump" type="AudioStreamPlayer2D" parent="." unique_id=1037784561]
 stream = ExtResource("3_qhqgy")
+bus = &"SFX"
 
 [node name="jumping" type="AudioStreamPlayer2D" parent="." unique_id=311571738]
 position = Vector2(-48, -88)
 stream = ExtResource("4_dqkch")
+bus = &"SFX"
 
 [node name="smokeparticule" type="AnimatedSprite2D" parent="." unique_id=1590979260]
 position = Vector2(4.0000076, -1.5258789e-05)

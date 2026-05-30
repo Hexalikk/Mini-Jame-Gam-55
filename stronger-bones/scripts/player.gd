@@ -214,7 +214,7 @@ func handle_movement(direction,delta):
 						velocity.x = -NO_HEAD_MAX_SPEED
 				if (velocity.x < 1 and velocity.x >-1):
 					velocity.x= 0
-				animated_sprite.rotation += velocity.x * 0.15 * delta
+				animated_sprite.rotation += velocity.x * 0.1 * delta
 
 func update_animations() -> void:
 	
@@ -242,11 +242,6 @@ func respawn():
 	smoke_sprite.play("default")
 	self.global_position = last_checkpoint
 
-
-
-
-
 func _on_animated_sprite_2d_frame_changed() -> void:
-	print(animated_sprite.animation)
 	if animated_sprite.animation == "walking":
 		jumping.play()
