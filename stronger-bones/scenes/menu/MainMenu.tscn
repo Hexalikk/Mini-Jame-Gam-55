@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://b7tsdex1dhkva" path="res://assets/fonts/pixelout/Pixelout Personal Use Only.ttf" id="1_m2yvp"]
 [ext_resource type="Script" uid="uid://k0xah1ttpfkh" path="res://scripts/ui/main_menu.gd" id="1_uwj7d"]
-[ext_resource type="Texture2D" uid="uid://1dm0ym7auaeq" path="res://Necromancer.png" id="2_s3dsm"]
+[ext_resource type="Texture2D" uid="uid://1dm0ym7auaeq" path="res://assets/characters/Necromancer.png" id="2_s3dsm"]
 [ext_resource type="Script" uid="uid://g54psjwfhcyt" path="res://scripts/ui/settings.gd" id="4_2nud1"]
 
 [sub_resource type="Theme" id="Theme_hgg2l"]
