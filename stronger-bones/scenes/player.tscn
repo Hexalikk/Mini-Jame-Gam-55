@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://k8siangul7pu" path="res://assets/smoke.png" id="4_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(196, 398)
+size = Vector2(196, 391)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
 radius = 70.0
@@ -159,6 +159,7 @@ animations = [{
 scale = Vector2(0.5, 0.5)
 
 [node name="hitbox_normal" type="CollisionShape2D" parent="." unique_id=1092267375]
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_u8vuu")
 debug_color = Color(1.6364455e-06, 0.5928822, 0.741061, 0.41960785)
 

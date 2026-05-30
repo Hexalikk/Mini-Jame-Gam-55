@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 				_state = STATE.NO_LEGS
 				var new_bones : Bones = bones_scene.instantiate()
 				new_bones.set_type(Bones.TYPE.LEGS)
-				get_parent().add_child(new_bones) 
+				get_parent().add_child(new_bones)
 				
 				var current_shape = _normal_hitbox.shape.get_rect() 
 				var current_height = current_shape.size.y/2
