@@ -6,9 +6,9 @@ const JUMP_VELOCITY = -400.0
 const SKULL_JUMP_VELOCITY = -100.0
 
 
-var _head_hitbox = CircleShape2D.new()
-var _normal_hitbox = RectangleShape2D.new()
-var _nolegs_hitbox = RectangleShape2D.new()
+@onready var _head_hitbox : CollisionShape2D = $hitbox_head
+@onready var _normal_hitbox : CollisionShape2D = $hitbox_normal
+@onready var _nolegs_hitbox : CollisionShape2D = $hitbox_rectangle
 
 var _state = STATE.NORMAL
 var heldFrameCounter: int = 0
@@ -16,7 +16,7 @@ var isHeldEnough: bool = false
 
 signal drop_a_bone
 @onready var animated_sprite :AnimatedSprite2D= $AnimatedSprite2D
-@onready var hitbox : CollisionShape2D = $CollisionShape2D
+
 
 enum STATE {
 	NORMAL,
@@ -25,16 +25,24 @@ enum STATE {
 }
 
 func _ready() -> void:
-	hitbox.shape = _normal_hitbox
+	_normal_hitbox.disabled = false
+	_nolegs_hitbox.disabled = true
+	_head_hitbox.disabled = true
 
 func update_player():
 	match _state:
 		STATE.NORMAL:
-			hitbox.shape = _normal_hitbox
+			_normal_hitbox.disabled = false
+			_nolegs_hitbox.disabled = true
+			_head_hitbox.disabled = true
 		STATE.NO_LEGS:
-			hitbox.shape = _nolegs_hitbox
+			_normal_hitbox.disabled = true
+			_nolegs_hitbox.disabled = false
+			_head_hitbox.disabled = true
 		STATE.HEAD:
-			hitbox.shape = _head_hitbox
+			_normal_hitbox.disabled = true
+			_nolegs_hitbox.disabled = true
+			_head_hitbox.disabled = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
