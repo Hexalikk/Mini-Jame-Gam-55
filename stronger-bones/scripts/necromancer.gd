@@ -6,5 +6,6 @@ signal end_the_game
 
 func _ready() -> void:
 	sprite.play("default")
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	end_the_game.emit()

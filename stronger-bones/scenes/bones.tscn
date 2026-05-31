@@ -6,7 +6,7 @@
 size = Vector2(119.999985, 52.499992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvm6a"]
-size = Vector2(119.99999, 54.999992)
+size = Vector2(120, 52.5)
 
 [node name="Bones" type="RigidBody2D" unique_id=380592673]
 script = ExtResource("1_22eir")
