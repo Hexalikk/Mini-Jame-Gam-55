@@ -4,7 +4,6 @@ var _current_level = -1
 
 var level_1 =preload("res://scenes/levels/Level1.tscn")
 var level_2 = preload("res://scenes/levels/Level2.tscn")
-@onready var pause = $PauseMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,9 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("pause"):
-		print("test")
-		pause.show()
+	pass
 
 func load_level(id :int):
 	var level
@@ -28,7 +25,7 @@ func load_level(id :int):
 			_current_level = 2
 	print(level)
 	if level != null:
-		get_node(".").add_child(level)
+		get_node(".").call_deferred("add_child",level)
 		level.next_level.connect(_switch_level)
 
 func _on_ui_controler_load_level() -> void:

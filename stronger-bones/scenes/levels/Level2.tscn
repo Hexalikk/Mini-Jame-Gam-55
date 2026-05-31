@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bj5uo3gjgasbh"]
 
-[ext_resource type="Script" uid="uid://bvmt8eupnc1nv" path="res://scripts/level/level1.gd" id="1_e5vnl"]
+[ext_resource type="Script" uid="uid://wph108xk4p6i" path="res://scripts/level/level2.gd" id="1_e5vnl"]
 [ext_resource type="Texture2D" uid="uid://b1t1lx70l0387" path="res://assets/Dungeon Tile Set.png" id="2_twycr"]
 [ext_resource type="PackedScene" uid="uid://dcerv7o74dm14" path="res://scenes/milk.tscn" id="3_inlfm"]
 [ext_resource type="PackedScene" uid="uid://bkc05oxigicje" path="res://scenes/player.tscn" id="4_e3qul"]

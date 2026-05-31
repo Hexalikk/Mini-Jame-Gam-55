@@ -2,7 +2,7 @@ class_name level2 extends level_interface
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_level_id(1)
+	set_level_id(2)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

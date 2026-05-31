@@ -75,6 +75,7 @@ func _physics_process(delta: float) -> void:
 		smoke_time += 1
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
 
 	if Input.is_action_pressed("jump") and is_on_floor():
 		heldFrameCounter += 1
@@ -235,7 +236,7 @@ func update_animations() -> void:
 		elif _state == STATE.HEAD:
 			animated_sprite.play("throw_body")
 			
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right") and is_on_floor():
 		if _state == STATE.NORMAL:
 			animated_sprite.play("walking")
 

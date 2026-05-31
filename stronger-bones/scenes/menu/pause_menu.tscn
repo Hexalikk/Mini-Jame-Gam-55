@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dfqjchi7xkuy3"]
 
-[ext_resource type="Script" uid="uid://g54psjwfhcyt" path="res://scripts/ui/settings.gd" id="1_n54lc"]
+[ext_resource type="Script" uid="uid://c4kao42mtm83i" path="res://scripts/ui/settings_pause.gd" id="1_n54lc"]
 
 [sub_resource type="GDScript" id="GDScript_khqvw"]
-script/source = "extends Control
+script/source = "extends CanvasLayer
 
 
 signal return_to_menu
@@ -27,10 +27,12 @@ func _on_returntomenu_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	setting_menu.show()
+
 	pause_menu.hide()
 
 
 func _on_resume_pressed() -> void:
+	get_tree().paused = false
 	self.hide()
 
 
@@ -39,26 +41,13 @@ func _on_back_pressed() -> void:
 	pause_menu.show()
 "
 
-[node name="PauseMenu" type="Control" unique_id=1671635051]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PauseMenu" type="CanvasLayer" unique_id=1329966165]
 script = SubResource("GDScript_khqvw")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1708338693]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -233.5
-offset_top = -164.0
-offset_right = 233.5
-offset_bottom = 164.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -85,24 +74,21 @@ layout_mode = 2
 text = "return to menu
 "
 
-[node name="Settings" type="Control" parent="." unique_id=1389905613]
+[node name="Settings" type="CanvasLayer" parent="." unique_id=1108797626]
+process_mode = 3
 visible = false
-anchors_preset = 0
-offset_left = -844.0
-offset_top = 108.0
-offset_right = -794.0
-offset_bottom = 146.0
 script = ExtResource("1_n54lc")
 
 [node name="PanelContainer" type="PanelContainer" parent="Settings" unique_id=2058534919]
-layout_mode = 0
-offset_left = 1187.0
-offset_top = 53.0
-offset_right = 1654.0
-offset_bottom = 381.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/PanelContainer" unique_id=366408405]
 layout_mode = 2
+size_flags_horizontal = 4
 alignment = 1
 
 [node name="Label" type="Label" parent="Settings/PanelContainer/VBoxContainer" unique_id=512732663]
