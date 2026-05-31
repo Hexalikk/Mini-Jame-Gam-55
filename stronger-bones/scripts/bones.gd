@@ -5,8 +5,8 @@ enum TYPE{
 	LEGS,
 	TORSO
 }
-const LEGS_TEXTURE  = preload("res://assets/bone_legs.png")
-const TORSO_TEXTURE = preload("res://assets/bone_torso.png")
+const LEGS_TEXTURE  = preload("res://assets/bone_legs_small.png")
+const TORSO_TEXTURE = preload("res://assets/bone_torso_small.png")
 
 @onready var torso_hitbox = $torso_hitbox
 @onready var leg_hitbox = $leg_hitbox

@@ -9,15 +9,16 @@ size = Vector2(119.999985, 52.499992)
 size = Vector2(120, 52.5)
 
 [node name="Bones" type="RigidBody2D" unique_id=380592673]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_22eir")
 
 [node name="torso_hitbox" type="CollisionShape2D" parent="." unique_id=856609977]
-position = Vector2(0.99999964, -7.7499995)
+position = Vector2(0.99999994, -13)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_22eir")
 
 [node name="leg_hitbox" type="CollisionShape2D" parent="." unique_id=1399733666]
-position = Vector2(0.99999994, -7.5)
+position = Vector2(0.99999994, -13)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_kvm6a")
 
