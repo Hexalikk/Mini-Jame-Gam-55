@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cdnmbfi7ibjvb" path="res://assets/milk.png" id="1_b1h7t"]
 [ext_resource type="Script" uid="uid://wfgvnpq6gq3b" path="res://scripts/milk.gd" id="1_i8xox"]
+[ext_resource type="AudioStream" uid="uid://btboxkb7ijai" path="res://assets/sound/sfx/milk_drinking.wav" id="3_bjqo6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i8xox"]
 
@@ -41,6 +42,11 @@ shape = SubResource("CircleShape2D_i8xox")
 position = Vector2(-2.5, 7.5)
 scale = Vector2(0.24023438, 0.22070313)
 sprite_frames = SubResource("SpriteFrames_2a8y6")
+autoplay = "default"
 frame_progress = 0.69881374
+
+[node name="MilkDrinking" type="AudioStreamPlayer" parent="." unique_id=933078560]
+stream = ExtResource("3_bjqo6")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

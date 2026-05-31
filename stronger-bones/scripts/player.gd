@@ -26,6 +26,7 @@ var isHeldEnough: bool = false
 
 var last_checkpoint : Vector2 
 
+var step_counter = 0
 
 signal drop_a_bone
 @onready var animated_sprite :AnimatedSprite2D= $AnimatedSprite2D
@@ -122,14 +123,9 @@ func _physics_process(delta: float) -> void:
 				var feet_position_y = self.global_position.y  + current_height/2
 				var target_bones_y = feet_position_y - (new_bones_height/2)
 				
-				
-					
-			
 				move_and_slide() 
-
-
-				new_bones.global_position.y = target_bones_y
 				
+				new_bones.global_position.y = target_bones_y
 
 				new_bones.global_position.x = self.global_position.x
 
@@ -251,7 +247,10 @@ func respawn():
 
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if animated_sprite.animation == "walking":
-		jumping.play()
+		if step_counter == 4:
+			jumping.play()
+			step_counter = 0
+		step_counter += 1
 		
 func delete_a_bone(): #fonction pour supprimer un os
 	if Input.is_action_just_released("delete a bone"):
