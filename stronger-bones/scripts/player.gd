@@ -34,6 +34,8 @@ signal drop_a_bone
 var smoke_started = false
 var smoke_time = 0.0
 
+var bones: Array = []
+
 enum STATE {
 	NORMAL,
 	NO_LEGS,
@@ -107,6 +109,7 @@ func _physics_process(delta: float) -> void:
 				_state = STATE.NO_LEGS
 				var new_bones : Bones = bones_scene.instantiate()
 				get_parent().add_child(new_bones)
+				bones.append(new_bones)
 				new_bones.set_type(Bones.TYPE.LEGS)
 
 				
@@ -138,7 +141,8 @@ func _physics_process(delta: float) -> void:
 				smoke_sprite.play("default")
 				_state = STATE.HEAD
 				var new_bones : Bones = bones_scene.instantiate()
-				get_parent().add_child(new_bones) 
+				get_parent().add_child(new_bones)
+				bones.append(new_bones)
 				new_bones.set_type(Bones.TYPE.TORSO)
 
 				var current_shape = _nolegs_hitbox.shape.get_rect() 
@@ -175,6 +179,7 @@ func _physics_process(delta: float) -> void:
 	update_animations()
 	update_player()
 	move_and_slide()
+	delete_a_bone()
 	if (smoke_started && smoke_time == 10):
 		smoke_sprite.hide()
 		smoke_started = false
@@ -219,8 +224,10 @@ func handle_movement(direction,delta):
 func update_animations() -> void:
 	
 	if not is_on_floor() and velocity.y < 0:
-		if _state != STATE.HEAD:
-			animated_sprite.play("jump_left")
+		if _state == STATE.NORMAL:
+			animated_sprite.play("jump")
+		if _state == STATE.NO_LEGS:
+			animated_sprite.play("jump_nolegs")
 			
 	elif is_on_floor() and velocity.x == 0 and not Input.is_action_pressed("jump"):
 		if _state == STATE.NORMAL:
@@ -245,3 +252,9 @@ func respawn():
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if animated_sprite.animation == "walking":
 		jumping.play()
+		
+func delete_a_bone(): #fonction pour supprimer un os
+	if Input.is_action_just_released("delete a bone"):
+		if bones.size() > 0:
+			var last_bone = bones.pop_back()
+			last_bone.queue_free()

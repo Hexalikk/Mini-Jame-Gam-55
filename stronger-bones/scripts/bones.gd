@@ -33,5 +33,7 @@ func set_type(type):
 			leg_hitbox.disabled = true
 			torso_hitbox.disabled = false
 			sprite.texture = TORSO_TEXTURE
+			
+		
 
 	
