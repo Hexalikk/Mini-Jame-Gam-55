@@ -123,12 +123,13 @@ func _physics_process(delta: float) -> void:
 
 				var feet_position_y = self.global_position.y  + current_height/2
 				var target_bones_y = feet_position_y - (new_bones_height/2)
-				
+				self.global_position.y -= new_bones_height/4
 				move_and_slide() 
 				
 				new_bones.global_position.y = target_bones_y
 
 				new_bones.global_position.x = self.global_position.x
+				
 
 
 			#On a pas de jambes, on drop notre torse
@@ -152,8 +153,7 @@ func _physics_process(delta: float) -> void:
 				var feet_position_y = self.global_position.y  + current_height
 				var target_bones_y = feet_position_y - (new_bones_height/2)
 					
-
-			
+				self.global_position.y -= new_bones_height/4
 				move_and_slide() 
 
 
