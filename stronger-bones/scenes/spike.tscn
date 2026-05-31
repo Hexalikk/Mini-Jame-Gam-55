@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drng16ghtnf2p" path="res://scripts/spike.gd" id="1_7a7y0"]
 [ext_resource type="Texture2D" uid="uid://cl77hvm6cbihs" path="res://assets/spike.png" id="1_ljd5v"]
+[ext_resource type="AudioStream" uid="uid://cua5a0i4rv8di" path="res://assets/sound/sfx/died.wav" id="3_d2mqm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7a7y0"]
 atlas = ExtResource("1_ljd5v")
@@ -61,5 +62,8 @@ frame_progress = 0.4033627
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1684138688]
 position = Vector2(0.5, 42.5)
 shape = SubResource("RectangleShape2D_mixud")
+
+[node name="Died" type="AudioStreamPlayer" parent="." unique_id=167395972]
+stream = ExtResource("3_d2mqm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

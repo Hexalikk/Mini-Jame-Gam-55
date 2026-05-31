@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkc05oxigicje"]
 
 [ext_resource type="Script" uid="uid://dcaot5k2ldgfd" path="res://scripts/player.gd" id="1_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://cvskv21ly8gx1" path="res://assets/sound/sfx/bones_crack.wav" id="2_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dj8bwo1a55m0t" path="res://assets/characters/skeleton2.png" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://bin2qnreyrojo" path="res://assets/sound/sfx/charging_jump.wav" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://yekcde0tvn3a" path="res://assets/characters/skeleton3.png" id="3_tuyoq"]
@@ -173,6 +174,12 @@ animations = [{
 scale = Vector2(0.5, 0.5)
 collision_layer = 3
 script = ExtResource("1_qlg0r")
+
+[node name="BonesCrack" type="AudioStreamPlayer" parent="." unique_id=2096351674]
+stream = ExtResource("2_fjrip")
+volume_db = -1.095
+pitch_scale = 0.93
+bus = &"SFX"
 
 [node name="hitbox_normal" type="CollisionShape2D" parent="." unique_id=1092267375]
 position = Vector2(-4, 0)

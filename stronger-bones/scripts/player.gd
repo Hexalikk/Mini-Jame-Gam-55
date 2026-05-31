@@ -104,6 +104,7 @@ func _physics_process(delta: float) -> void:
 		match(_state):
 			#On est normal, on drop nos jambes
 			STATE.NORMAL:
+				$BonesCrack.play()
 				smoke_sprite.show()
 				smoke_started = true
 				smoke_sprite.play("default")
@@ -132,6 +133,7 @@ func _physics_process(delta: float) -> void:
 
 			#On a pas de jambes, on drop notre torse
 			STATE.NO_LEGS:
+				$BonesCrack.play()
 				smoke_sprite.show()
 				smoke_started = true
 				smoke_sprite.play("default")
