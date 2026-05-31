@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c03wtasctqywr" path="res://scenes/menu/ui_controler.tscn" id="2_0wfyh"]
 [ext_resource type="AudioStream" uid="uid://x6nnl0pm6kok" path="res://assets/sound/music/strongbones.mp3" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://cbu83ulyxxjwh" path="res://scripts/game_manager.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dfqjchi7xkuy3" path="res://scenes/menu/pause_menu.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node" unique_id=1214933348]
 
@@ -18,4 +19,8 @@ parameters/looping = true
 [node name="GameManager" type="Node" parent="." unique_id=949893276]
 script = ExtResource("3_sugp2")
 
+[node name="PauseMenu" parent="GameManager" unique_id=1671635051 instance=ExtResource("4_jyhfs")]
+visible = false
+
 [connection signal="load_level" from="UiControler" to="GameManager" method="_on_ui_controler_load_level"]
+[connection signal="return_to_menu" from="GameManager/PauseMenu" to="GameManager" method="_on_pause_menu_return_to_menu"]
