@@ -40,6 +40,8 @@ position = Vector2(-1, 0)
 script = ExtResource("1_c6vx4")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1369753729]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=728731339]
 position = Vector2(32.5, -10.5)
@@ -53,3 +55,4 @@ frame_progress = 0.703076
 speed_scale = 0.5
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

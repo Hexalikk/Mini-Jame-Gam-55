@@ -15,6 +15,10 @@ run/main_scene="uid://b42684l5or2sf"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://delmgpe437jvl"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/indent_guidelines/plugin.cfg")

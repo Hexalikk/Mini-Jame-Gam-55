@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://co5fua6ehq6jw"]
+
+[ext_resource type="Script" uid="uid://wph108xk4p6i" path="res://scripts/level/level2.gd" id="1_uw6xe"]
+
+[node name="Level2" type="Node2D" unique_id=1020215520]
+script = ExtResource("1_uw6xe")
+
+[node name="Label" type="Label" parent="." unique_id=1926784174]
+offset_left = 386.0
+offset_top = 221.0
+offset_right = 426.0
+offset_bottom = 237.0
+text = "CACACA"
