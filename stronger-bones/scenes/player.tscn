@@ -175,10 +175,10 @@ zoom = Vector2(1.5, 1.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = 0.55
+editor_draw_limits = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1552383906]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"walking"
 animation = &"throw_legs"
 speed_scale = 0.5
 
